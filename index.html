@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git Club CHARUSAT | Project Showcase</title>
+<meta name="description" content="Explore projects built by students of Git Club CHARUSAT — from web development and AI to IoT and design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=JetBrains+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><span class="dot"></span>Git Club <small>CHARUSAT</small></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <nav id="menu">
+      <a href="#featured">Featured</a>
+      <a href="#log">Ship log</a>
+      <a href="#projects">All projects</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <p class="hero-eyebrow"><span class="status-dot"></span>GIT CLUB &times; CHARUSAT<span class="eyebrow-line"></span>PROJECT ARCHIVE</p>
+        <h1>The <span>Living<i class="cursor" aria-hidden="true"></i></span> Repository.</h1>
+        <p class="hero-tagline">Ideas become projects. Projects become commits. Commits become impact.</p>
+        <p class="hero-description">Explore the websites, apps, AI systems, IoT builds and creative work developed by the Git Club community at CHARUSAT.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary hero-main-btn" href="#projects"><span class="prompt">$</span>explore-projects<i class="cursor" aria-hidden="true"></i></a>
+          <a class="hero-text-link" href="#about">cat README.md</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat"><strong id="stat-projects">00</strong><span>PROJECTS</span></div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat"><strong id="stat-domains">00</strong><span>DOMAINS</span></div>
+          <div class="stat-divider"></div>
+          <div class="hero-stat"><strong>&infin;</strong><span>IDEAS</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-header">
+          <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+          <span class="visual-label">git-club / projects</span>
+          <span class="visual-live"><span></span>LIVE</span>
+        </div>
+
+        <div class="branch-map">
+          <svg class="branch-lines" viewBox="0 0 600 430" preserveAspectRatio="none" aria-hidden="true">
+            <path class="branch-line line-main" d="M70 215 C170 215 145 80 275 80 C400 80 375 215 530 215"/>
+            <path class="branch-line line-second" d="M275 80 C335 80 320 350 430 350"/>
+            <path class="branch-line line-third" d="M145 215 C220 215 210 300 300 300 C355 300 360 215 430 215"/>
+            <path class="branch-line line-fourth" d="M430 215 C470 215 465 130 530 130"/>
+          </svg>
+          <div class="commit-node node-1" style="--d:0s"><span></span><div class="node-label"><strong>main</strong><small id="node-main">00 projects</small></div></div>
+          <div class="commit-node node-2" style="--d:.5s"><span></span><div class="node-label"><strong>AI/ML</strong><small id="node-aiml">00 projects</small></div></div>
+          <div class="commit-node node-3" style="--d:1s"><span></span><div class="node-label"><strong>WEB</strong><small id="node-web">00 projects</small></div></div>
+          <div class="commit-node node-4" style="--d:1.5s"><span></span><div class="node-label"><strong>IOT</strong><small id="node-iot">00 projects</small></div></div>
+          <div class="commit-node node-5" style="--d:2s"><span></span><div class="node-label"><strong>DESIGN</strong><small id="node-design">00 project</small></div></div>
+          <div class="commit-node node-6" style="--d:2.5s"><span></span><div class="node-label"><strong>APP</strong><small id="node-app">00 project</small></div></div>
+          <div class="center-commit"><span class="center-ring"></span><div><strong>BUILD</strong><small>COLLABORATE &middot; SHIP</small></div></div>
+        </div>
+
+        <div class="activity-panel">
+          <div class="activity-title"><span>RECENT ACTIVITY</span></div>
+          <ol id="gitlog"></ol>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="wrap sec" id="featured">
+    <p class="path">featured</p>
+    <h2>Featured projects</h2>
+    <p class="sub">Picked by the club for solving a real problem well.</p>
+    <div class="grid feat" id="featGrid"></div>
+  </section>
+
+  <section class="wrap sec" id="log">
+    <p class="path">activity</p>
+    <h2>Ship log</h2>
+    <p class="sub">One square per month the club has shipped in. Click a month to see what launched.</p>
+    <div class="heatmap" id="heatmap"></div>
+    <p class="scale"><span>Less</span><span class="hcell" data-lvl="0"></span><span class="hcell" data-lvl="1"></span><span class="hcell" data-lvl="2"></span><span class="hcell" data-lvl="3"></span><span class="hcell" data-lvl="4"></span><span>More</span></p>
+    <p class="filter-note" id="monthNote" hidden>Showing <b id="monthLabel"></b> only. <button class="linklike" id="clearMonth">Clear</button></p>
+  </section>
+
+  <section class="wrap sec" id="projects">
+    <p class="path">projects</p>
+    <h2>All projects</h2>
+    <p class="sub">Search, filter and discover what the community is building. Press <kbd>/</kbd> to search.</p>
+
+    <div class="controls">
+      <input type="search" id="search" placeholder="Search by name, technology or member" aria-label="Search projects">
+      <select id="tech" aria-label="Filter by technology"></select>
+      <select id="sort" aria-label="Sort projects">
+        <option value="featured">Featured first</option>
+        <option value="newest">Newest first</option>
+        <option value="title">Name A to Z</option>
+      </select>
+    </div>
+
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+
+    <div class="empty" id="empty" hidden>
+      <h3>No projects match this search</h3>
+      <p>Try a different word, or clear the filters.</p>
+      <button class="btn" id="reset">Clear filters</button>
+    </div>
+  </section>
+
+  <section class="wrap sec about" id="about">
+    <p class="path">about</p>
+    <h2>Built by students. Shared with everyone.</h2>
+    <p>The Git Club CHARUSAT Project Showcase is a central space for discovering the projects, experiments and ideas created by our student community.</p>
+    <p>Explore what was built, understand the problem behind each project, discover the technologies used and follow the work further through the project repository or live demo.</p>
+  </section>
+
+</main>
+
+<footer class="foot"><div class="wrap"><strong>Git Club CHARUSAT</strong> &middot; Build. Collaborate. Ship.</div></footer>
+
+<dialog id="modal" aria-labelledby="m-title">
+  <button class="nav-btn prev" id="prev" aria-label="Previous project">&larr;</button>
+  <button class="nav-btn next" id="next" aria-label="Next project">&rarr;</button>
+  <button class="close" id="close" aria-label="Close project details">Close</button>
+  <div id="m-body"></div>
+</dialog>
+
+<script src="projects.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
